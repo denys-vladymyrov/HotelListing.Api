@@ -1,0 +1,39 @@
+@HotelListing.API_HostAddress = https://localhost:7082
+
+
+GET {{HotelListing.API_HostAddress}}/api/hotels
+
+###
+
+POST {{HotelListing.API_HostAddress}}/api/hotels
+Content-Type: application/json
+
+ {
+    "id": 3,
+    "name": "Ocean View",
+    "address": "456 Beach Rd",
+    "rating": 4.8
+  }
+
+###
+
+@id=1
+DELETE {{HotelListing.API_HostAddress}}/api/hotels/{{id}}
+
+###
+
+GET {{HotelListing.API_HostAddress}}/api/hotels/{{id}}
+
+###
+
+PUT {{HotelListing.API_HostAddress}}/api/hotels/{{id}}
+Content-Type: application/json
+
+{
+    "id": 3,
+    "name": "Ocean View",
+    "address": "456 Beach Rd",
+    "rating": 14.8
+  }
+
+###
