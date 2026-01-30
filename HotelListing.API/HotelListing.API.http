@@ -38,7 +38,7 @@ Content-Type: application/json
 
 ###
 
-@id=2
+@id=3
 GET {{HotelListing.API_HostAddress}}/api/countries
 
 ###
@@ -65,7 +65,7 @@ PUT {{HotelListing.API_HostAddress}}/api/countries/{{id}}
 Content-Type: application/json
 
 {
-    "countryId": 2,
+  "countryId": 3,
   "name": "Jamaica",
   "shortName": "JM"
 }
