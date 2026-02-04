@@ -1,7 +1,7 @@
 @HotelListing.API_HostAddress = https://localhost:7082
 
 
-@id=3
+@id=14
 GET {{HotelListing.API_HostAddress}}/api/countries
 
 ###
@@ -15,7 +15,7 @@ POST {{HotelListing.API_HostAddress}}/api/countries
 Content-Type: application/json
 
 {
-  "name": "Test Country",
+  "name": "Test Country6",
   "shortName": "TC"
 }
 
@@ -28,12 +28,13 @@ DELETE {{HotelListing.API_HostAddress}}/api/countries/{{id}}
 
 PUT {{HotelListing.API_HostAddress}}/api/countries/{{id}}
 Content-Type: application/json
-
 {
-  "countryId": 1,
-  "name": "Jamaica",
+  "id": 4,
+  "name": "Jamaica!!",
   "shortName": "JM"
 }
+
+###
 
  // Hotels
 
@@ -53,7 +54,7 @@ POST {{HotelListing.API_HostAddress}}/api/hotels
 Content-Type: application/json
 
 {
-  "Name": "Test Hotel 2",
+  "Name": "Test Hotel 2222",
   "Address": "123 Main St",
   "Rating": 4.5,
   "CountryId": 1
@@ -70,11 +71,11 @@ PUT {{HotelListing.API_HostAddress}}/api/hotels/{{id}}
 Content-Type: application/json
 
 {
-  "Id": 3,
-  "Name": "3333",
+  "Id": 14,
+  "Name": "ûגûגפûג",
   "Address": "123 Main St",
   "Rating": 4.5,
-  "CountryId": 1
+  "CountryId": 100
 }
 
 ###
