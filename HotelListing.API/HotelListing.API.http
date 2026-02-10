@@ -4,6 +4,7 @@
 
 @id=14
 GET {{HotelListing.API_HostAddress}}/api/countries
+Authorization: Basic YWRtaW4xQGxvY2FsaG9zdC5jb206UEBzc3dvcmQx
 
 ###
 
@@ -89,7 +90,7 @@ POST {{HotelListing.Api_HostAddress}}/api/defaultauth/login
 Content-Type: {{json}}
 
 {
-  "email": "user@localhost.com",
+  "email": "admin1@localhost.com",
   "password": "P@ssword1"
 }
 
