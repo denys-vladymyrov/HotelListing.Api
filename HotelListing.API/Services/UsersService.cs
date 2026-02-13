@@ -1,7 +1,7 @@
 ﻿using HotelListing.Api.Contracts;
-using HotelListing.Api.DTOs.Auth;
 using HotelListing.Api.Results;
 using HotelListing.API.Data;
+using HotelListing.API.DTOs.Auth;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
