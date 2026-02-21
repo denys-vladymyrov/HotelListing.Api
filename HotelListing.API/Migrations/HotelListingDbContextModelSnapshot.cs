@@ -171,7 +171,19 @@ namespace HotelListing.API.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Key")
+                        .IsUnique();
+
                     b.ToTable("ApiKeys");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AppName = "app",
+                            CreatedAtUtc = new DateTimeOffset(new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 2, 0, 0, 0)),
+                            Key = "dXNlcjFAbG9jYWxob3N0LmNvbTpQQHNzrbd29yZDE="
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -199,6 +211,22 @@ namespace HotelListing.API.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "c78e8f15-6a6c-4c8a-b5d1-98394b071953",
+                            ConcurrencyStamp = "1",
+                            Name = "Administrator",
+                            NormalizedName = "ADMINISTRATOR"
+                        },
+                        new
+                        {
+                            Id = "36aac992-72ff-4527-9008-52e7c145ca39",
+                            ConcurrencyStamp = "1",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

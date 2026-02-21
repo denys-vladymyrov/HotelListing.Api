@@ -5,7 +5,7 @@
 @id=14
 GET {{HotelListing.API_HostAddress}}/api/countries
 # Authorization: Basic YWRtaW4xQGxvY2FsaG9zdC5jb206UEBzc3dvcmQx
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiODllMWVhNC04YjVkLTQyZjItYWUwYy04NTQ2NDY1ZDIxMTciLCJlbWFpbCI6ImFkbWluMUBsb2NhbGhvc3QuY29tIiwianRpIjoiZTJkZDk5ZWMtZTBlOS00OGEzLTljMzUtZjA2ZGI0Zjk0ZTBjIiwibmFtZSI6IlZsYWR5bXlyb3YsIERlbnlzIiwiZXhwIjoxNzcxNjE5ODk2LCJpc3MiOiJIb3RlbExpc3RpbmdBUEkiLCJhdWQiOiJIb3RlbExpc3RpbmdBUElDbGllbnQifQ.p6N7b3D7KKxiHp2iEU0wVg-D8TDnR-QysSPdvZ6VC0c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzMzViMDZhMi1kZGQ3LTQ0ODUtYThkYy1lN2FkYzA2Mzc0MDAiLCJlbWFpbCI6InVzZXJAbG9jYWxob3N0LmNvbSIsImp0aSI6ImNlYjc3NzRhLWY0M2UtNDhlOC04NmE4LWRiNWMzMWRiNGUyNCIsIm5hbWUiOiJWbGFkeW15cm92LCBEZW55cyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3NzE3MDQ5NjUsImlzcyI6IkhvdGVsTGlzdGluZ0FQSSIsImF1ZCI6IkhvdGVsTGlzdGluZ0FQSUNsaWVudCJ9.gN_iuyQ0hGXow3w0nL--cnZXkLjdN_5GSepSr9BUSMo
 ###
 
 
@@ -14,10 +14,11 @@ GET {{HotelListing.API_HostAddress}}/api/countries/{{id}}
 ###
 
 POST {{HotelListing.API_HostAddress}}/api/countries
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4NDg0MWFlZC1lMjZhLTQ3YzAtYWNlZC0yMjMyOGU3YWZjOTEiLCJlbWFpbCI6ImFkbWluQGxvY2FsaG9zdC5jb20iLCJqdGkiOiI2NDVhMmU4Ni1jNGRmLTRkMjYtODNlOC1kN2JkNDg5NmIyNDAiLCJuYW1lIjoiVmxhZHlteXJvdiwgRGVueXMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhdG9yIiwiZXhwIjoxNzcxNzA1MDM5LCJpc3MiOiJIb3RlbExpc3RpbmdBUEkiLCJhdWQiOiJIb3RlbExpc3RpbmdBUElDbGllbnQifQ.lDjqajp1MS-_G8psCJkwdkSba4pj-cRNw_KFqEyeEeg
 Content-Type: {{json}}
 
 {
-  "name": "Test Country6",
+  "name": "Test1 Country6",
   "shortName": "TC"
 }
 
@@ -122,7 +123,7 @@ POST {{HotelListing.API_HostAddress}}/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "admin1@localhost.com",
+  "email": "admin@localhost.com",
   "password": "P@ssword1"
 }
 
@@ -132,7 +133,7 @@ POST {{HotelListing.API_HostAddress}}/api/auth/register
 Content-Type: application/json
 
 {
-  "email": "amin4@localhost.com",
+  "email": "admin@localhost.com",
   "password": "P@ssword1",
   "firstName":"Denys",
   "lastName": "Vladymyrov",
