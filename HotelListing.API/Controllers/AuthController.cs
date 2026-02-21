@@ -1,4 +1,5 @@
 ﻿using HotelListing.Api.Contracts;
+using HotelListing.Api.Controllers;
 using HotelListing.Api.Results;
 using HotelListing.Api.Services;
 using HotelListing.API.DTOs.Auth;
@@ -7,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HotelListing.Api.Controllers;
+namespace HotelListing.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

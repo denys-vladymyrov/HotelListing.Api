@@ -4,7 +4,6 @@ using HotelListing.API.Data;
 using HotelListing.API.DTOs.Auth;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;

@@ -4,8 +4,8 @@
 
 @id=14
 GET {{HotelListing.API_HostAddress}}/api/countries
-Authorization: Basic YWRtaW4xQGxvY2FsaG9zdC5jb206UEBzc3dvcmQx
-
+# Authorization: Basic YWRtaW4xQGxvY2FsaG9zdC5jb206UEBzc3dvcmQx
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiODllMWVhNC04YjVkLTQyZjItYWUwYy04NTQ2NDY1ZDIxMTciLCJlbWFpbCI6ImFkbWluMUBsb2NhbGhvc3QuY29tIiwianRpIjoiZTJkZDk5ZWMtZTBlOS00OGEzLTljMzUtZjA2ZGI0Zjk0ZTBjIiwibmFtZSI6IlZsYWR5bXlyb3YsIERlbnlzIiwiZXhwIjoxNzcxNjE5ODk2LCJpc3MiOiJIb3RlbExpc3RpbmdBUEkiLCJhdWQiOiJIb3RlbExpc3RpbmdBUElDbGllbnQifQ.p6N7b3D7KKxiHp2iEU0wVg-D8TDnR-QysSPdvZ6VC0c
 ###
 
 
@@ -122,7 +122,7 @@ POST {{HotelListing.API_HostAddress}}/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "amin4@localhost.com",
+  "email": "admin1@localhost.com",
   "password": "P@ssword1"
 }
 
