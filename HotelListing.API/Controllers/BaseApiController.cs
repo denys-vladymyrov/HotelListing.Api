@@ -1,7 +1,6 @@
-﻿using HotelListing.Api.Results;
+﻿using System.Linq;
+using HotelListing.Api.Results;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using Error = HotelListing.Api.Results.Error;
 
 namespace HotelListing.Api.Controllers;
 
@@ -10,7 +9,7 @@ public abstract class BaseApiController : ControllerBase
     protected ActionResult<T> ToActionResult<T>(Result<T> result)
         => result.IsSuccess ? Ok(result.Value) : MapErrorsToResponse(result.Errors);
 
-    protected ActionResult ToActionResult(Results.Result result)
+    protected ActionResult ToActionResult(Result result)
         => result.IsSuccess ? NoContent() : MapErrorsToResponse(result.Errors);
 
     protected ActionResult MapErrorsToResponse(Error[] errors)
@@ -24,6 +23,7 @@ public abstract class BaseApiController : ControllerBase
             ErrorCodes.Validation => BadRequest(e.Description),
             ErrorCodes.BadRequest => BadRequest(e.Description),
             ErrorCodes.Conflict => Conflict(e.Description),
+            ErrorCodes.Forbid => Forbid(e.Description),
             _ => Problem(detail: string.Join("; ", errors.Select(x => x.Description)), title: e.Code)
         };
     }
