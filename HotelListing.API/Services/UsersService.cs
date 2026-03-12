@@ -1,6 +1,5 @@
 ﻿using HotelListing.Api.Contracts;
 using HotelListing.Api.Data;
-using HotelListing.Api.DTOs.Auth;
 using HotelListing.Api.Results;
 using HotelListing.API.Data;
 using HotelListing.API.DTOs.Auth;

@@ -1,13 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace HotelListing.API.DTOs.Booking
-{
-    public class UpdateBookingDto
-    {
-    }
-}
-﻿using System.ComponentModel.DataAnnotations;
-
 namespace HotelListing.Api.DTOs.Booking;
 
 public record UpdateBookingDto(

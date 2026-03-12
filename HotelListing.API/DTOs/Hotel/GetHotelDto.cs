@@ -7,7 +7,7 @@ public record GetHotelDto
     public string Address { get; init; } = string.Empty;
     public double Rating { get; init; }
     public int CountryId { get; init; }
-    public string Country { get; init; } = string.Empty;
+    public string CountryName { get; init; } = string.Empty;
 }
 
 public record GetHotelSlimDto
