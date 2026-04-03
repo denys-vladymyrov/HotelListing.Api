@@ -1,6 +1,7 @@
-﻿using HotelListing.Api.Contracts;
+﻿using HotelListing.Api.Common.Constants;
+using HotelListing.Api.Common.Results;
+using HotelListing.Api.Contracts;
 using HotelListing.Api.Data;
-using HotelListing.Api.Results;
 using HotelListing.API.Data;
 using HotelListing.API.DTOs.Auth;
 using Microsoft.AspNetCore.Identity;
@@ -39,7 +40,7 @@ public class UsersService(
         await userManager.AddToRoleAsync(user, registerUserDto.Role);
 
         // If Hotel Admin, add to HotelAdmins table
-        if (registerUserDto.Role == "Hotel Admin")
+        if (registerUserDto.Role == RoleNames.HotelAdmin)
         {
             var hotelAdmin = hotelListingDbContext.HotelAdmins.Add(
                 new HotelAdmin

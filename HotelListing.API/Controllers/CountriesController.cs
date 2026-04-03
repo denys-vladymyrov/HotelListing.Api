@@ -1,4 +1,5 @@
-﻿using HotelListing.Api.Contracts;
+﻿using HotelListing.Api.Common.Constants;
+using HotelListing.Api.Contracts;
 using HotelListing.Api.DTOs.Country;
 using HotelListing.Api.DTOs.Hotel;
 using HotelListing.API.Data;
@@ -31,7 +32,7 @@ public class CountriesController(ICountriesService countriesService) : BaseApiCo
 
     // PUT: api/Countries/5
     [HttpPut("{id}")]
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = RoleNames.Administrator)]
     public async Task<IActionResult> PutCountry(int id, UpdateCountryDto updateDto)
     {
         var result = await countriesService.UpdateCountryAsync(id, updateDto);
@@ -40,7 +41,7 @@ public class CountriesController(ICountriesService countriesService) : BaseApiCo
 
     // POST: api/Countries
     [HttpPost]
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = RoleNames.Administrator)]
     public async Task<ActionResult<GetCountryDto>> PostCountry(CreateCountryDto createDto)
     {
         var result = await countriesService.CreateCountryAsync(createDto);
@@ -51,7 +52,7 @@ public class CountriesController(ICountriesService countriesService) : BaseApiCo
 
     // DELETE: api/Countries/5
     [HttpDelete("{id}")]
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = RoleNames.Administrator)]
     public async Task<IActionResult> DeleteCountry(int id)
     {
         var result = await countriesService.DeleteCountryAsync(id);

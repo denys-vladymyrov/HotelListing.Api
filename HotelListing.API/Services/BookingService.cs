@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using HotelListing.Api.Common.Results;
 using HotelListing.Api.Contracts;
 using HotelListing.Api.Data;
 using HotelListing.Api.Data.Enums;
 using HotelListing.Api.DTOs.Booking;
-using HotelListing.Api.Results;
 using HotelListing.API.Data;
 using Microsoft.EntityFrameworkCore;
 

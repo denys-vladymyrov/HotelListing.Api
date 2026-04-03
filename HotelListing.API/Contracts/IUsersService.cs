@@ -1,4 +1,4 @@
-﻿using HotelListing.Api.Results;
+﻿using HotelListing.Api.Common.Results;
 using HotelListing.API.DTOs.Auth;
 
 namespace HotelListing.Api.Contracts;

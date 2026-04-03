@@ -1,7 +1,7 @@
-﻿using HotelListing.Api.DTOs.Hotel;
-using HotelListing.Api.Results;
+﻿using HotelListing.Api.Common.Results;
+using HotelListing.Api.DTOs.Hotel;
 using static Microsoft.CodeAnalysis.CSharp.SyntaxTokenParser;
-using Result = HotelListing.Api.Results.Result;
+using Result = HotelListing.Api.Common.Results.Result;
 
 namespace HotelListing.Api.Contracts;
 

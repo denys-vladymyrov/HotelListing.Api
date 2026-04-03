@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using HotelListing.Api.Common.Constants;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -12,22 +13,22 @@ public class RoleConfiguration : IEntityTypeConfiguration<IdentityRole>
             new IdentityRole
             {
                 Id = "c78e8f15-6a6c-4c8a-b5d1-98394b071953",
-                Name = "Administrator",
-                NormalizedName = "ADMINISTRATOR",
+                Name = RoleNames.Administrator,
+                NormalizedName = RoleNames.Administrator.ToUpper(),
                 ConcurrencyStamp = "1",
             },
             new IdentityRole
             {
                 Id = "36aac992-72ff-4527-9008-52e7c145ca39",
-                Name = "User",
-                NormalizedName = "USER",
+                Name = RoleNames.User,
+                NormalizedName = RoleNames.User.ToUpper(),
                 ConcurrencyStamp = "1"
             },
             new IdentityRole
             {
                 Id = "36aac992-4c8a-4527-9008-98394b071953",
-                Name = "Hotel Admin",
-                NormalizedName = "HOTEL ADMIN",
+                Name = RoleNames.HotelAdmin,
+                NormalizedName = RoleNames.HotelAdmin.ToUpper(),
                 ConcurrencyStamp = "1"
             }
         );

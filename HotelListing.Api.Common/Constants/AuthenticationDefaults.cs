@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-
-namespace HotelListing.Api.Constants;
+﻿namespace HotelListing.Api.Common.Constants;
 
 public static class AuthenticationDefaults
 {
