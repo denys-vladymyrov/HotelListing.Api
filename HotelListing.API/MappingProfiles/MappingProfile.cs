@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-using HotelListing.Api.Data;
+using HotelListing.Api.Domain;
 using HotelListing.Api.DTOs.Booking;
 using HotelListing.Api.DTOs.Country;
 using HotelListing.Api.DTOs.Hotel;
-using HotelListing.API.Data;
 
 namespace HotelListing.Api.MappingProfiles;
 

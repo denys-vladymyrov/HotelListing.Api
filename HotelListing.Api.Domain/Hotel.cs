@@ -1,6 +1,4 @@
-﻿using HotelListing.Api.Data;
-
-namespace HotelListing.API.Data;
+﻿namespace HotelListing.Api.Domain;
 
 public class Hotel
 {

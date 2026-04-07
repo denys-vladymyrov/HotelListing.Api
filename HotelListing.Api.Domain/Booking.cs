@@ -1,7 +1,6 @@
-﻿using HotelListing.Api.Data.Enums;
-using HotelListing.API.Data;
+﻿using HotelListing.Api.Domain.Enums;
 
-namespace HotelListing.Api.Data;
+namespace HotelListing.Api.Domain;
 
 public class Booking
 {

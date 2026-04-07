@@ -1,6 +1,4 @@
-﻿using HotelListing.API.Data;
-
-namespace HotelListing.Api.Data;
+﻿namespace HotelListing.Api.Domain;
 
 public class HotelAdmin
 {

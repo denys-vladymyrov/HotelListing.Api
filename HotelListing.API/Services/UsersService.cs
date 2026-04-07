@@ -1,10 +1,11 @@
 ﻿using HotelListing.Api.Common.Constants;
+using HotelListing.Api.Common.Models;
 using HotelListing.Api.Common.Results;
 using HotelListing.Api.Contracts;
-using HotelListing.Api.Data;
-using HotelListing.API.Data;
+using HotelListing.Api.Domain;
 using HotelListing.API.DTOs.Auth;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
 using System.Data;
@@ -17,7 +18,7 @@ namespace HotelListing.Api.Services;
 public class UsersService(
     UserManager<ApplicationUser> userManager,
     HotelListingDbContext hotelListingDbContext,
-    IConfiguration configuration,
+    IOptions<JwtSettings> jwtOptions,
     IHttpContextAccessor httpContextAccessor) : IUsersService
 {
     public async Task<Result<RegisteredUserDto>> RegisterAsync(RegisterUserDto registerUserDto)
@@ -112,15 +113,15 @@ public class UsersService(
         claims = claims.Union(roleClaims).ToList();
 
         // Set JWT Key credentials
-        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtSettings:Key"] ?? string.Empty));
+        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.Value.Key));
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
         // Create an encoded token
         var token = new JwtSecurityToken(
-            issuer: configuration["JwtSettings:Issuer"],
-            audience: configuration["JwtSettings:Audience"],
+            issuer: jwtOptions.Value.Issuer,
+            audience: jwtOptions.Value.Audience,
             claims: claims,
-            expires: DateTime.UtcNow.AddMinutes(Convert.ToInt32(configuration["JwtSettings:DurationInMinutes"])),
+            expires: DateTime.UtcNow.AddMinutes(Convert.ToInt32(jwtOptions.Value.DurationInMinutes)),
             signingCredentials: credentials
             );
 
