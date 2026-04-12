@@ -1,4 +1,5 @@
 using HotelListing.Api.Application.Contracts;
+using HotelListing.Api.Application.MappingProfiles;
 using HotelListing.Api.Application.Services;
 using HotelListing.Api.Common.Constants;
 using HotelListing.Api.Common.Models;
@@ -62,7 +63,8 @@ builder.Services.AddScoped<IUsersService, UsersService>();
 builder.Services.AddScoped<IBookingService, BookingService>();
 builder.Services.AddScoped<IApiKeyValidatorService, ApiKeyValidatorService>();
 
-builder.Services.AddAutoMapper(cfg => { }, Assembly.GetExecutingAssembly());
+builder.Services.AddAutoMapper(cfg => { }, typeof(HotelMappingProfile).Assembly);
+
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
