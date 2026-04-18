@@ -20,4 +20,8 @@
     <ProjectReference Include="..\HotelListing.Api.Common\HotelListing.Api.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="SQL Scripts\" />
+  </ItemGroup>
+
 </Project>

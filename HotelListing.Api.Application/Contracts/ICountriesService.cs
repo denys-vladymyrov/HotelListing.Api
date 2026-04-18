@@ -1,4 +1,6 @@
 ﻿using HotelListing.Api.Application.DTOs.Country;
+using HotelListing.Api.Application.DTOs.Hotel;
+using HotelListing.Api.Common.Models.Paging;
 using HotelListing.Api.Common.Results;
 using Result = HotelListing.Api.Common.Results.Result;
 
@@ -11,6 +13,7 @@ public interface ICountriesService
     Task<Result<GetCountryDto>> CreateCountryAsync(CreateCountryDto createDto);
     Task<Result> DeleteCountryAsync(int id);
     Task<Result<IEnumerable<GetCountriesDto>>> GetCountriesAsync();
+    Task<Result<PagedResult<GetHotelDto>>> GetCountryHotelsAsync(int countryId, PaginationParameters paginationParameters);
     Task<Result<GetCountryDto>> GetCountryAsync(int id);
     Task<Result> UpdateCountryAsync(int id, UpdateCountryDto updateDto);
 }
