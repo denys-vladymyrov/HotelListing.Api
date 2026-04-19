@@ -9,17 +9,16 @@ using HotelListing.Api.Common.Models.Paging;
 using HotelListing.Api.Common.Results;
 using HotelListing.Api.Domain;
 using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
-using Result = HotelListing.Api.Common.Results.Result;
 
 namespace HotelListing.Api.Application.Services;
 
-public class HotelsService(HotelListingDbContext context,ICountriesService countriesService, IMapper mapper) : IHotelsService
+public class HotelsService(HotelListingDbContext context,
+    ICountriesService countriesService,
+    IMapper mapper) : IHotelsService
 {
     public async Task<Result<PagedResult<GetHotelDto>>> GetHotelsAsync(PaginationParameters paginationParameters, HotelFilterParameters filters)
     {
         var query = context.Hotels.AsQueryable();
-
         if (filters.CountryId.HasValue)
         {
             query = query.Where(q => q.CountryId == filters.CountryId);
@@ -38,12 +37,18 @@ public class HotelsService(HotelListingDbContext context,ICountriesService count
             query = query.Where(h => h.PerNightRate <= filters.MaxPrice);
 
         if (!string.IsNullOrWhiteSpace(filters.Location))
-            query = query.Where(h => h.Address.Contains(filters.Location));
+        {
+            var location = filters.Location.Trim();
+            query = query.Where(h => EF.Functions.Like(h.Address, $"%{location}%"));
+        }
 
         // generic search param
         if (!string.IsNullOrWhiteSpace(filters.Search))
-            query = query.Where(h => h.Name.Contains(filters.Search) ||
-                                    h.Address.Contains(filters.Search));
+        {
+            var search = filters.Search.Trim();
+            query = query.Where(h => EF.Functions.Like(h.Name, $"%{search}%") ||
+                                    EF.Functions.Like(h.Address, $"%{search}%"));
+        }
 
         query = filters.SortBy?.ToLower() switch
         {
@@ -97,10 +102,7 @@ public class HotelsService(HotelListingDbContext context,ICountriesService count
         context.Hotels.Add(hotel);
         await context.SaveChangesAsync();
 
-        var dto = await context.Hotels
-            .Where(h => h.Id == hotel.Id)
-            .ProjectTo<GetHotelDto>(mapper.ConfigurationProvider)
-            .FirstAsync();
+        var dto = mapper.Map<GetHotelDto>(hotel);
 
         return Result<GetHotelDto>.Success(dto);
     }
@@ -153,7 +155,8 @@ public class HotelsService(HotelListingDbContext context,ICountriesService count
 
     public async Task<bool> HotelExistsAsync(string name, int countryId)
     {
+        var normalizedName = name.ToLower().Trim();
         return await context.Hotels
-            .AnyAsync(e => e.Name.ToLower().Trim() == name.ToLower().Trim() && e.CountryId == countryId);
+            .AnyAsync(e => e.Name.ToLower().Trim() == normalizedName && e.CountryId == countryId);
     }
 }
