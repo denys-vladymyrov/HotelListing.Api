@@ -4,7 +4,7 @@
 @hotelId=5
 @bookingId=1
 @today={{$localDatetime iso8601}} 
-@token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyNTc1NzAwNy0wN2FhLTRhMjEtYjJmYS0wMmE5Yzk3NDk4ODciLCJlbWFpbCI6ImFkbWluMUBsb2NhbGhvc3QuY29tIiwianRpIjoiZjc4Mzc1MmYtYWJiMy00MjJmLWE5MDAtYWMxNzEyODRhMDM0IiwibmFtZSI6IlZsYWR5bXlyb3YsIERlbnlzIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYXRvciIsImV4cCI6MTc3NjQxOTkyNSwiaXNzIjoiSG90ZWxMaXN0aW5nQVBJIiwiYXVkIjoiSG90ZWxMaXN0aW5nQVBJQ2xpZW50In0.Xlx5GsiWS9mtm1aFHk_B5H8KIhF7ye4WEmANkFPyM90
+@token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzYTk0M2QxYi00ZTE4LTRjYTYtOGVjYi04ZDllZGI4ZDdlYWQiLCJlbWFpbCI6ImhvdGVsYWRtaW5AbG9jYWxob3N0LmNvbSIsImp0aSI6IjQ3YmIxOGUyLTM4NDItNGZhYy1iZGY4LTZiNGM0ZmU3MmRlNSIsIm5hbWUiOiJBZG1pbiwgSG90ZWwiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJIb3RlbCBBZG1pbiIsImV4cCI6MTc3NjYxODE1NywiaXNzIjoiSG90ZWxMaXN0aW5nQVBJIiwiYXVkIjoiSG90ZWxMaXN0aW5nQVBJQ2xpZW50In0.OlRszyUJV8_rY0D3yImUjeX0JM6sBLigwnxHomBih6s
 ###
 POST {{host}}/api/auth/register
 Content-Type: application/json
@@ -170,3 +170,11 @@ GET {{host}}/api/hotels/{{hotelId}}/bookings/admin
 Authorization: Bearer {{token}}
 
 ###
+
+GET {{host}}/api/hotels?pageNumber=3&pageSize=20&minRating=4.1
+Authorization: Bearer {{token}}
+###
+
+
+GET {{host}}/api/countries/1/hotels?search=o
+Authorization: Bearer {{token}}
