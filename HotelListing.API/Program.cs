@@ -35,6 +35,11 @@ try
 
     var builder = WebApplication.CreateBuilder(args);
 
+    builder.Host.UseSerilog((context, services, configuration) => configuration
+       .ReadFrom.Configuration(context.Configuration)
+       .ReadFrom.Services(services)
+   );
+
     // Add services to the IoC container.
     var connectionString = builder.Configuration.GetConnectionString("HotelListingDbConnectionString");
 
